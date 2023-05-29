@@ -3,8 +3,10 @@ const axios = require("axios");
 const { incrementVersion } = require("./versionUtils");
 
 const app = express();
-const port = 3000;
-
+const port = 3000 || process.env.port;
+app.get("/get", async()=>{
+    req.json({message : "I'm working fine!"});
+});
 // Get auto
 app.get("/get-auto/:owner/:repo", async (req, res) => {
   try {
